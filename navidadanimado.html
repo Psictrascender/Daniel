@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva de Navidad</title>
+    <p class="creado"> Creado con: HTML / CSS</p>
+    <h2> Escuela Secundaria Técnica No.43 <br> 
+    "Luis Enrique Erro"</h2>
+    <br>
+    <p class="nombre"> González Otero Daniel Emanuel 3°F</p>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+        body {
+            background-image: url('https://th.bing.com/th/id/R.1ce1a4bfbee10b7d3a71b75c611ef1f1?rik=h0gORryhl8p%2bfw&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f41600000%2fchristmas-christmas-41669079-2000-1514.jpg&ehk=Y2J0RFZe6L%2bX7oxc3zQaewTqOUM%2fnn%2fhFV0NaSwJbS8%3d&risl=&pid=ImgRaw&r=0'); 
+            background-size: cover; /* Ajusta el tamaño para cubrir toda la pantalla */ 
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+             background-position: center; /* Centra la imagen en la pantalla */ 
+             color: #ffffff; 
+            font-family: 'Copperplate', cursive; 
+            text-align: center; 
+            padding: 10px; 
+            overflow: hidden;
+        }
+
+        .creado {
+            text-align: left;
+            color: black;
+            
+        }
+        .container {
+            background-color: #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 153, 255, 0.975);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            color: #f2ff00;
+            animation: slideIn 2s ease-in-out;
+            background-color: darkgreen;
+            border-radius: 15px;
+        }
+        h2 {
+            color: black;
+
+        }
+        .nombre { 
+            color: blue;
+            
+        }
+        .countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+            border: solid 10px;
+            background-color: black;
+        }
+        .christmas-theme {
+            margin-top: 50px;
+            animation: grow 2s ease-in-out;
+            border-radius: 50px;
+            
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @keyframes grow {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cuenta Regresiva de Navidad</h1>
+        <div id="countdown" class="countdown"></div>
+        <img src="https://www.kolpaper.com/wp-content/uploads/2020/12/Cute-Feliz-Navidad-Wallpaper-2.jpg" 
+        alt="Tema de Navidad" class="christmas-theme" width="400">
+    </div>
+
+    <script>
+       const deadline = new Date('December 24, 2024 23:59:59').getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = deadline - now;
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown').innerHTML = 
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    if (difference < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById(countdown).HTMLElement = 'Merry Christmas!';
+    }
+}
+
+const countdownInterval = setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
